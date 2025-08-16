@@ -9,16 +9,9 @@ Perfect if you’re tired of grinding for that 1/7 spawn chance in vanilla.
 - Lightweight and optimized  
 
 ## 📦 Installation
-1. Download the latest JAR file from the `target/` folder (after building).  
-2. Drop the JAR into your server’s `plugins/` folder.  
-3. Restart or reload the server.  
-
-## 🔧 Requirements
-- Minecraft **1.21.1+** (Purpur/Spigot/Paper)  
-- Java **21** or higher  
-- Maven (for building from source)  
-
-## 🛠️ Building from Source
+### Option 1: Modrinth:
+The project is **under review** for now, so proceed to
+### Option 2: Building from Source: 
 1. Clone the repo:  
    ```bash
    git clone https://github.com/hacker4ofakind/netherite-upgrade-always-there.git
@@ -32,6 +25,14 @@ Perfect if you’re tired of grinding for that 1/7 spawn chance in vanilla.
    ```
    target/NetheriteUpgradeAlwaysThere-x.x.x.jar
    ```
+4. Drop the JAR into your server’s `plugins/` folder.  
+5. Restart or reload the server.  
+
+## 🔧 Requirements
+- Minecraft **1.21.1+** (Purpur/Spigot/Paper)  
+- Java **21** or higher  
+- Maven (for building from source)  
+
 
 ## 🎮 Usage
 - Load into your world and locate a Bastion Remnant.  
