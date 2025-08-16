@@ -21,7 +21,7 @@ Perfect if you’re tired of grinding for that 1/7 spawn chance in vanilla.
 ## 🛠️ Building from Source
 1. Clone the repo:  
    ```bash
-   git clone https://github.com/yourname/netherite-upgrade-always-there.git
+   git clone https://github.com/hacker4ofakind/netherite-upgrade-always-there.git
    cd netherite-upgrade-always-there
    ```
 2. Build with Maven:  
