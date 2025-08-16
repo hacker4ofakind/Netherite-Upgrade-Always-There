@@ -10,7 +10,9 @@ Perfect if you’re tired of grinding for that 1/7 spawn chance in vanilla.
 
 ## 📦 Installation
 ### Option 1: Modrinth:
-The project is **under review** for now, so proceed to
+1. Dowload the JAR from https://modrinth.com/project/wkAG9q8d
+2. Drop it into your server's `plugins/` folder.
+3. Restart or reload the server.
 ### Option 2: Building from Source: 
 1. Clone the repo:  
    ```bash
