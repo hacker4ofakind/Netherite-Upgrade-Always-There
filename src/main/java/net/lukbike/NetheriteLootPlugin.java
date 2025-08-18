@@ -1,5 +1,6 @@
 package net.lukbike;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -7,8 +8,9 @@ import org.bukkit.event.world.LootGenerateEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.loot.LootTables;
 import org.bukkit.plugin.java.JavaPlugin;
+import io.papermc.paper.threadedregions.scheduler.RegionScheduler;
 
-public class NetheriteLootPlugin extends JavaPlugin implements Listener {
+public class NetheriteUpgradeAlwaysThere extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
@@ -19,14 +21,21 @@ public class NetheriteLootPlugin extends JavaPlugin implements Listener {
     public void onLootGenerate(LootGenerateEvent event) {
         if (event.getLootTable() == null) return;
 
-        // Check if the loot table belongs to any bastion chest type
         if (event.getLootTable().getKey().equals(LootTables.BASTION_TREASURE.getKey())
                 || event.getLootTable().getKey().equals(LootTables.BASTION_BRIDGE.getKey())
                 || event.getLootTable().getKey().equals(LootTables.BASTION_HOGLIN_STABLE.getKey())
                 || event.getLootTable().getKey().equals(LootTables.BASTION_OTHER.getKey())) {
 
-            // Always add the Netherite Upgrade Smithing Template (100% chance)
-            event.getLoot().add(new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE));
+            Location chestLocation = event.getLootContext().getLocation();
+            if (chestLocation != null) {
+                RegionScheduler scheduler = getServer().getRegionScheduler();
+                scheduler.execute(this, chestLocation, () -> {
+                    event.getLoot().add(new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE));
+                });
+            } else {
+                // Fallback: if somehow location is null, just add directly
+                event.getLoot().add(new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE));
+            }
         }
     }
 }
